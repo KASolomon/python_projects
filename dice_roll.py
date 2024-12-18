@@ -8,13 +8,18 @@
 
 from random import randint
 
-
+counter = 0
 while(True):
     response = input("Roll the dice? (y/n).  ").lower()
     if response == 'y':
-        random1 = randint(1,6)
-        random2 = randint(1,6)
-        print(f'({random1}, {random2})') 
+        diceNumber = int(input("How many dice do you want to roll? "))
+        diceResults = []
+        for i in range(0,diceNumber):
+            random1 = randint(1,6)
+            diceResults.append(str(random1))
+        
+        print(f"({','.join(diceResults)})")
+        counter+=1
         continue
     elif response == 'n':
         break
@@ -22,4 +27,5 @@ while(True):
         print("Invalid input. Only 'y' and 'n' allowed.")
         continue
 
+print(f"You rolled {counter} times!")
 print("Thanks for playing!")
